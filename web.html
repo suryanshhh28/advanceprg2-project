@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra's algorithm</title>
+    <link rel = "stylesheet" type = "text/css" href = "web.css">
+</head>
+<body>
+    <h1>Dijkstra's algorithm</h1>
+    <p>Use arrow keys to move around.</p>
+    <button onclick="maze.reset();">Generate path</button>
+    <button onclick="maze.generateMultipleSolutions();">
+        Generate path with Multiple Solutions
+    </button>
+    <button onclick="maze.generateRandomEnd();">Generate Random End</button>
+    <button onclick="maze.solveDijkstra();">Find the shortest path</button>
+    <button onclick="maze.clearMazeAndReset();">Reset</button>
+    <div id="grid"></div>
+    <script src = "web.js"></script> 
+<script>
+    window.onload = function() {
+        window.maze = new Maze({
+            gridElement: document.getElementById("grid"),
+            gridSize: new Point(20, 10),
+            blockSize: 25,
+            onSolved: function() {
+                setTimeout(function() {
+                alert("A maze ing!");
+                }, 200);
+            },
+        });
+        maze.reset();
+    };
+</script>
+</body>
+</html>
